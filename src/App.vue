@@ -1,32 +1,81 @@
+<!--大元-->
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app id="app">
+    <!-- アプリケーションバ ー-->
+    <v-app-bar
+      app
+      color="#3698CC"
+      dence
+      dark
+    >
+    <v-toolbar-title>Long text Q&A Demonstration</v-toolbar-title>
+    </v-app-bar>
+
+    <!-- ナビゲーションドロワー -->
+    <v-navigation-drawer 
+            app 
+            permanent 
+            expandOnHover 
+            dark 
+            color="primary"
+            >
+      <v-list-item >
+        <v-list-item-content color="primary">
+          <v-list-item-title class="title">
+            Menu
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list
+        dense
+        nav
+      >
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          :to="item.link"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title >{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <!-- コンテンツ  -->
+    <v-main>
+        <keep-alive>
+          <router-view ></router-view>
+        </keep-alive>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+export default {
+  name: 'App',
+  components: {
+  },
+  data: () => ({
+        items: [
+          { title: 'Home', icon: 'mdi-home', link:'/'},
+          { title: 'Choose Dataset', icon: 'mdi-text-box', link:'Choose' },
+          { title: 'Question&Answering', icon: 'mdi-help-box', link:'QA' },
+        ]
+  }),
+};
+</script>
+<style scoped>
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
+  #app{
+    background-color:#f1fff0;
   }
-}
 </style>
