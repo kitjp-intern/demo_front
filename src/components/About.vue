@@ -1,12 +1,10 @@
 <!-- Home data -->
 <template>
-  <v-container >
-    <v-row justify="center">
-    <v-card width="800px">
-    <v-row justify="center">
+  <v-container>
+    <v-row>
     <h1>Haystack Q&Aの使い方</h1>
     </v-row>
-    <v-row justify="center">
+    <v-row>
       <ol>
         <li>メニューの<v-icon>{{'mdi-text-box'}}</v-icon>Choose dataを選んでデータを選択してください</li>
         <li>選択後、<v-btn x-small rounded color='primary'>データを決定</v-btn>を押してください</li>
@@ -15,8 +13,6 @@
         <li>他の回答を確認したい場合はカードをクリックしてください</li>
       </ol>
     </v-row>
-  </v-card>
-    </v-row>
   </v-container>
 </template>
 
@@ -24,7 +20,7 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
+  name: 'About',
   components: {
   }
 }

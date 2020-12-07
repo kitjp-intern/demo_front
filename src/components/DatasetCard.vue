@@ -8,7 +8,6 @@
         :key="card.name"
         :cols="card.flex"
         >
-        <transition name="router-transition" enter-active-class="animated slideInRight" leave-active-class="animated zoomOut" appear="" mode="out-in">
         <v-card
           elevation="5"
           outlined  
@@ -40,9 +39,8 @@
               <v-card-text>{{card.explain}}</v-card-text>
             </div>
           </v-expand-transition>
-          <v-btn @click="datasetChange(card.name)" color="primary" rounded>データセット選択</v-btn>
+          <v-btn @click="datasetChange(card.name); pushDataBase" color="primary" rounded>データセット選択</v-btn>
         </v-card>
-             </transition>
       </v-col>
     </v-row>
   </v-container>
@@ -50,12 +48,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name:"DatasetCard",
   methods:{
     datasetChange(dataset){
       //store data change
       this.$store.state.datasetName = dataset
+      console.log(dataset)
+    },
+    pushDataBase(){
+      axios.post('https://a751440dca00.ngrok.io/post/database',{
+      database:this.datasetName
+      }).then(response=>{
+        console.log(this.datasetName)
+        console.log(response)
+      }).catch(error=>{
+        console.log(error)
+      })
     }
   },
   computed:{
@@ -64,7 +74,7 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('commitDataBase')
+    //this.$store.dispatch('commitDataBase')
   }
 }
 </script>

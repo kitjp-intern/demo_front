@@ -3,14 +3,12 @@
 <v-container id="qa">
   <v-row justify="center">
     <v-col>
-    <v-card class="pa-sm-3 pa-md-7" max-width="100%" height="150px" >
-    <h2 class="answer">Question</h2>
     <v-form ref="form" lazy-validation @submit.prevent>
       <v-container>
          <v-row justify="center" align-content="center">
          <v-col cols="8">
             <v-text-field
-              v-model="questionForm.question"
+              v-model="question"
               label="質問"
               outlined
               dense
@@ -18,7 +16,7 @@
           </v-col>
           <v-col cols="1">
             <v-btn 
-             @click="GetAnswer(questionForm.question)"
+             @click="GetAnswer(question)"
              color="primary"
              class="pa-1 ma-1"
             >SEND</v-btn>
@@ -26,7 +24,6 @@
         </v-row>
       </v-container>
     </v-form>
-  </v-card>
   <v-snackbar
        v-model="snackBar.show"
        :color="snackBar.color"
@@ -36,12 +33,6 @@
       {{snackBar.message}}
    </v-snackbar>
   </v-col>
-  <v-col>
-   <v-card class="pa-sm-3 pa-md-7" max-width="100%" height="150px"> 
-    <h2 class="answer">Answer</h2>
-    <h1>{{ answer1.answer }}</h1>
-  </v-card> 
-  </v-col>
   </v-row>
 </v-container>
 </template>
@@ -50,9 +41,6 @@
 import axios from 'axios'
 export default {
   data:()=>({
-    questionForm: {
-        question: '',
-    },
     snackBar: {
         show: false,
         color: '',
@@ -66,7 +54,11 @@ export default {
     },
     answer1(){
       return this.$store.state.answer
+    },
+    question(){
+      return this.$store.state.question
     }
+
   },
   methods:{
     GetAnswer(query){
@@ -100,14 +92,6 @@ export default {
 <style scoped>
 #qa{
   text-align:center;
-}
-.answer{
-  display: inline;
-  text-align: center;
-  color:black;
-  border-bottom:solid;
-  border-color:gray;
-  margin-right: 700px;
 }
 
 </style>

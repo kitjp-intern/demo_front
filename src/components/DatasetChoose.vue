@@ -5,7 +5,8 @@
       <h2>あなたが選んだデータセットは...</h2>
     </v-row>
     <v-row justify="center">
-      <h1 id="datasetname">{{ datasetName }}</h1>
+      <h1 v-if="datasetName!=null" id="datasetname">{{ datasetName }}</h1>
+      <h1 v-else><br></h1>
     </v-row>
   </v-container>
 </template>

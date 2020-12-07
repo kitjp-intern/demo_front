@@ -2,45 +2,14 @@
 <template>
 <v-container id="qa">
   <v-row justify="center">
-    <v-col>
-    <v-card class="pa-sm-3 pa-md-7" max-width="100%" height="150px" >
-    <h2 class="answer">Question</h2>
-    <v-form ref="form" lazy-validation @submit.prevent>
-      <v-container>
-         <v-row justify="center" align-content="center">
-         <v-col cols="8">
-            <v-text-field
-              v-model="questionForm.question"
-              label="質問"
-              outlined
-              dense
-            ></v-text-field>
-          </v-col>
-          <v-col cols="1">
-            <v-btn 
-             @click="GetAnswer(questionForm.question)"
-             color="primary"
-             class="pa-1 ma-1"
-            >SEND</v-btn>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-form>
-  </v-card>
-  <v-snackbar
-       v-model="snackBar.show"
-       :color="snackBar.color"
-       top
-       :timeout="3000"
-       class="font-weight-bold">
-      {{snackBar.message}}
-   </v-snackbar>
-  </v-col>
   <v-col>
-   <v-card class="pa-sm-3 pa-md-7" max-width="100%" height="150px"> 
+    <dataset-choose/>
+    <h2 class="answer">Question</h2>
+    <h1 v-if="question!=null">{{ question }}</h1>
+    <h1 v-else><br></h1>
     <h2 class="answer">Answer</h2>
-    <h1>{{ answer1.answer }}</h1>
-  </v-card> 
+    <h1 v-if="answer1.answer=={}"><br></h1>
+    <h1 v-else>{{ answer1.answer }}</h1>
   </v-col>
   </v-row>
 </v-container>
@@ -48,24 +17,25 @@
 
 <script>
 import axios from 'axios'
+import DatasetChoose from './DatasetChoose'
 export default {
+  components: { DatasetChoose },
   data:()=>({
-    questionForm: {
-        question: '',
-    },
     snackBar: {
         show: false,
         color: '',
         message: ''
     },
-    color:['f4ffff','#eaffff','#d5ffff','#aaffff','#80ffff','#55ffff','#2bffff','#00ffff','#00d5d5','#00aaaa']
   }),
   computed:{
-    answerOutput(){
-      return this.$store.state.answerTop10
+    datasetName(){
+      return this.$store.state.datasetName
     },
     answer1(){
       return this.$store.state.answer
+    },
+    question(){
+      return this.$store.state.question
     }
   },
   methods:{

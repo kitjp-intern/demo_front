@@ -1,28 +1,17 @@
 <!--大元-->
 <template>
   <v-app id="app">
-    <!-- アプリケーションバ ー-->
-    <v-app-bar
-      app
-      color="#3698CC"
-      dence
-      dark
-    >
-    <v-toolbar-title>Long text Q&A Demonstration</v-toolbar-title>
-    </v-app-bar>
-
     <!-- ナビゲーションドロワー -->
     <v-navigation-drawer 
             app 
             permanent 
-            expandOnHover 
             dark 
             color="primary"
             >
       <v-list-item >
         <v-list-item-content color="primary">
           <v-list-item-title class="title">
-            Menu
+            KIT Demostration
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -67,8 +56,7 @@ export default {
   data: () => ({
         items: [
           { title: 'Home', icon: 'mdi-home', link:'/'},
-          { title: 'Choose Dataset', icon: 'mdi-text-box', link:'Choose' },
-          { title: 'Question&Answering', icon: 'mdi-help-box', link:'QA' },
+          { title: 'HaystackQA', icon: 'mdi-text-box', link:'HaystackQA' },
         ]
   }),
 };
@@ -76,6 +64,6 @@ export default {
 <style scoped>
 @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
   #app{
-    background-color:#f1fff0;
+    background-color:white;
   }
 </style>
