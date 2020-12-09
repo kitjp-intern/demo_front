@@ -4,12 +4,10 @@
   <v-row justify="center">
   <v-col>
     <dataset-choose/>
-    <h2 class="answer">Question</h2>
-    <h1 v-if="question!=null">{{ question }}</h1>
-    <h1 v-else><br></h1>
+    <question-card/>
     <h2 class="answer">Answer</h2>
-    <h1 v-if="answer1.answer=={}"><br></h1>
-    <h1 v-else>{{ answer1.answer }}</h1>
+    <h2 v-if="answer1.answer=={}"><br></h2>
+    <h2 v-else>{{ answer1.answer }}</h2>
   </v-col>
   </v-row>
 </v-container>
@@ -18,8 +16,12 @@
 <script>
 import axios from 'axios'
 import DatasetChoose from './DatasetChoose'
+import QuestionCard from './QuestionCard.vue'
 export default {
-  components: { DatasetChoose },
+  components: { 
+    DatasetChoose,
+    QuestionCard,
+  },
   data:()=>({
     snackBar: {
         show: false,

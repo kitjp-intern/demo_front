@@ -7,6 +7,7 @@
             permanent 
             dark 
             color="primary"
+
             >
       <v-list-item >
         <v-list-item-content color="primary">
@@ -15,8 +16,6 @@
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-
-      <v-divider></v-divider>
 
       <v-list
         dense
@@ -65,5 +64,6 @@ export default {
 @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
   #app{
     background-color:white;
+    padding-left:30px;
   }
 </style>

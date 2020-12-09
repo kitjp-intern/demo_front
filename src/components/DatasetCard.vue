@@ -61,7 +61,6 @@ export default {
       axios.post('https://a751440dca00.ngrok.io/post/database',{
       database:this.datasetName
       }).then(response=>{
-        console.log(this.datasetName)
         console.log(response)
       }).catch(error=>{
         console.log(error)

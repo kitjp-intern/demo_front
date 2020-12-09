@@ -1,20 +1,21 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
-        <About/>
+      <v-col cols="6" style="border-left:10px">
+        <about/>
       </v-col>
-      <v-col>
-      <AnswerCard/>
-      </v-col>
+      <v-col cols="6">
+      <answer-card/>
+  
+      </v-col >
     </v-row>
     <v-row>
-      <v-col>
-      <DatasetCard/>
-      <QuestionCard/>
+      <v-col cols="6">
+      <dataset-card/>
+      <input-card/>
       </v-col>
-      <v-col>
-      <TopKCard/>
+      <v-col cols="6">
+      <top-k-card/>
       </v-col>
     </v-row>
   </v-container> 
@@ -23,18 +24,24 @@
 <script>
 import About from '../components/About'
 import DatasetCard from '../components/DatasetCard'
-import QuestionCard from '../components/QuestionCard'
-import TopKCard from '../components/TopKCard'
 import AnswerCard from '../components/AnswerCard'
+import InputCard from '../components/InputCard'
+import TopKCard from '../components/TopKCard.vue'
 export default {
   name:'HaystackQA',
   components:{
     About,
     DatasetCard,
-    QuestionCard,
-    TopKCard,
+
     AnswerCard,
-  }
+    InputCard,
+    TopKCard,
+  },
+  computed:{
+    toggleRight(){
+      return this.$store.state.toggleRight
+    }
+  },
 }
 </script>
 

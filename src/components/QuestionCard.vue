@@ -1,8 +1,5 @@
 <!--QAcard-->
 <template>
-<v-container id="qa">
-  <v-row justify="center">
-    <v-col>
     <v-form ref="form" lazy-validation @submit.prevent>
       <v-container>
          <v-row justify="center" align-content="center">
@@ -22,19 +19,16 @@
             >SEND</v-btn>
           </v-col>
         </v-row>
+      <v-snackbar
+         v-model="snackBar.show"
+         :color="snackBar.color"
+         top
+         :timeout="3000"
+         class="font-weight-bold">
+          {{snackBar.message}}
+       </v-snackbar>
       </v-container>
     </v-form>
-  <v-snackbar
-       v-model="snackBar.show"
-       :color="snackBar.color"
-       top
-       :timeout="3000"
-       class="font-weight-bold">
-      {{snackBar.message}}
-   </v-snackbar>
-  </v-col>
-  </v-row>
-</v-container>
 </template>
 
 <script>
@@ -92,6 +86,7 @@ export default {
 <style scoped>
 #qa{
   text-align:center;
+  height: 100px;
 }
 
 </style>
