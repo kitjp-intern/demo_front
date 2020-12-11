@@ -16,9 +16,6 @@
                 <v-card-title v-else>{{top.answer.substring(0,14)+ '...'}}</v-card-title> 
                 <v-card-subtitle>{{'Probabilty:'+Math.floor(top.prob*1000)/1000}}</v-card-subtitle>
               </v-card>
-             <v-row justify="center" id="maru">
-              <h3>{{top.top}}</h3>
-             </v-row>
           </template>
 
           <v-card>

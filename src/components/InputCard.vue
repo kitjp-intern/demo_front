@@ -1,41 +1,12 @@
 <template>
-  <v-container  color="black" class="card" fluid>
-    <v-row dense class=" pt-10" >
-          <v-col
-            v-for="top in database"
-            :key="top.name"
-            :cols="top.flex"
-          >
-          <v-dialog
-            v-model="top.dialog"
-            width="800px"
-          >
-          <template v-slot:activator="{ on, attrs }">
-              <v-card outlined  hover v-bind="attrs" v-on="on" >
-                <v-card-title v-if="top.fileName.length<15">{{top.fileName}}</v-card-title>
-                <v-card-title v-else>{{top.fileName.substring(0,14)+ '...'}}</v-card-title> 
-                <v-card-subtitle>{{top.text}}</v-card-subtitle>
-              </v-card>
-          </template>
-
-          <v-card>
-          <v-toolbar dense dark color="primary">
-            <span>詳細</span>
-            <v-spacer></v-spacer>
-            <v-btn icon dark @click="top.dialog = false">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-          </v-toolbar>
-            <v-card-title>
-               <span class="headline">:{{top.contexts}}</span>
-            </v-card-title>
-            <v-card-text v-html="top.contexts">
-            </v-card-text>
-          </v-card>
-          </v-dialog>
-
-         </v-col>
-        </v-row>
+  <v-container fluid>
+    <v-textarea v-model="contexts[databaseName]" solo height="300">              
+      <template v-slot:label>
+        <div>
+         データ中身の例 
+        </div>
+      </template>
+    </v-textarea>
   </v-container>
 </template>
 
@@ -44,22 +15,28 @@ export default {
   data:()=>({
     dialog:false,
     input10:[
-      {fileName:"aaaaa.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"bbbbb.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"ccccc.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"ddddd.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"eeeee.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"fffff.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"ggggg.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"hhhhh.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"iiiii.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"jjjjj.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
-      ,{fileName:"kkkkk.txt",flex: 2,text:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      {name:"aaaaa.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"bbbbb.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"ccccc.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"ddddd.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"eeeee.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"fffff.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"ggggg.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"hhhhh.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"iiiii.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"jjjjj.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
+      ,{name:"kkkkk.txt",flex: 2,contexts:"texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"}
     ]
   }),
   computed:{
     database(){
       return this.$store.state.dataBase
+    },
+    databaseName(){
+      return this.$store.state.datasetName
+    },
+    contexts(){
+      return this.$store.state.contexts
     }
   },
 

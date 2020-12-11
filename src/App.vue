@@ -63,7 +63,7 @@ export default {
 <style scoped>
 @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
   #app{
-    background-color:white;
+    background-color:#DDEEFF;
     padding-left:30px;
   }
 </style>
