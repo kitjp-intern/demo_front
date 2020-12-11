@@ -2,8 +2,8 @@
   <v-container  color="black" class="card" fluid>
     <v-row dense class=" pt-10" >
           <v-col
-            v-for="top in input10"
-            :key="top.fileName"
+            v-for="top in database"
+            :key="top.name"
             :cols="top.flex"
           >
           <v-dialog
@@ -27,10 +27,9 @@
             </v-btn>
           </v-toolbar>
             <v-card-title>
-               <span class="headline">Answer:{{top.answer}}</span>
+               <span class="headline">:{{top.contexts}}</span>
             </v-card-title>
-            <v-card-subtitle>{{'Probabilty:'+Math.floor(top.prob*1000)/1000}}</v-card-subtitle>
-            <v-card-text v-html="top.context">
+            <v-card-text v-html="top.contexts">
             </v-card-text>
           </v-card>
           </v-dialog>
@@ -59,8 +58,8 @@ export default {
     ]
   }),
   computed:{
-    answer1(){
-      return this.$store.state.answerTop10
+    database(){
+      return this.$store.state.dataBase
     }
   },
 

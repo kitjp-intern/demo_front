@@ -73,7 +73,7 @@ export default {
     }
   },
   created() {
-    //this.$store.dispatch('commitDataBase')
+    this.$store.dispatch('commitDataBase')
   }
 }
 </script>
