@@ -43,14 +43,18 @@
         </v-card>
       </v-col>
     </v-row>
+    <input-card/>
   </v-container>
-  
 </template>
 
 <script>
 import axios from 'axios'
+import InputCard from './InputCard.vue'
 export default {
   name:"DatasetCard",
+  components:{
+    InputCard
+  },
   methods:{
     datasetChange(dataset){
       //store data change

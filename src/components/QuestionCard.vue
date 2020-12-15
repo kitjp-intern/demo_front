@@ -8,6 +8,7 @@
               v-model="question"
               label="質問"
               outlined
+              solo
               dense
             ></v-text-field>
           </v-col>
@@ -61,7 +62,7 @@ export default {
       .then(response=>{
         for (let i=0; i < response.data.q.length; i++){
           response.data.q[i].dialog = false
-          response.data.q[i].flex = 4
+          response.data.q[i].flex = 12
           response.data.q[i].top = i + 1
           response.data.q[i].color = this.color[i]
         }

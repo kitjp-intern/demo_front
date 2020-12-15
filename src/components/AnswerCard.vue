@@ -5,9 +5,9 @@
   <v-col>
     <dataset-choose/>
     <question-card/>
-    <h2 class="answer">Answer</h2>
-    <h2 v-if="answer1.answer=={}"><br></h2>
-    <h2 v-else>{{ answer1.answer }}</h2>
+    <v-card v-if="answer1!={}" color="#952175" dark>
+      <h1>Answer:{{ answer1.answer }}</h1>
+    </v-card>
   </v-col>
   </v-row>
 </v-container>
@@ -15,7 +15,7 @@
 
 <script>
 import DatasetChoose from './DatasetChoose'
-import QuestionCard from './QuestionCard.vue'
+import QuestionCard from './QuestionCard'
 export default {
   components: { 
     DatasetChoose,
@@ -29,15 +29,10 @@ export default {
     },
   }),
   computed:{
-    datasetName(){
-      return this.$store.state.datasetName
-    },
     answer1(){
+      console.log(this.$store.state.answer)
       return this.$store.state.answer
     },
-    question(){
-      return this.$store.state.question
-    }
   },
   methods:{
   }
@@ -54,7 +49,7 @@ export default {
   color:black;
   border-bottom:solid;
   border-color:gray;
-  margin-right: 700px;
+  margin-right: 200px;
 }
 
 </style>
