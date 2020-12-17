@@ -1,5 +1,5 @@
 <template>
-  <v-container  color="black" class="card" fluid>
+  <v-container  fluid>
     <v-row dense v-if="answer1!=[{answer:null}]" class=" pt-10" >
           <v-col
             v-for="top in answer1"
@@ -11,7 +11,7 @@
             width="800px"
           >
           <template v-slot:activator="{ on, attrs }">
-              <v-card outlined  hover v-bind="attrs" v-on="on" >
+              <v-card outlined  hover v-bind="attrs" v-on="on">
                 <v-card-title v-if="top.answer.length<15">{{top.answer}}</v-card-title>
                 <v-card-title v-else>{{top.answer.substring(0,14)+ '...'}}</v-card-title> 
                 <v-card-subtitle>{{'Probabilty:'+Math.floor(top.prob*1000)/1000}}</v-card-subtitle>
@@ -42,9 +42,6 @@
 
 <script>
 export default {
-  data:()=>({
-    dialog:false,
-  }),
   computed:{
     answer1(){
       return this.$store.state.answerTop10
@@ -54,7 +51,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+$text-color: #eff1ff;
+$background-color: #04009d;
+$background-color-dark: #06004d;
+
 #maru {
  height:30px;
  width:30px;
@@ -64,6 +65,6 @@ export default {
  background-color:white;
  margin-top:10px;
  margin-left:200px;
- 
 }
+
 </style>

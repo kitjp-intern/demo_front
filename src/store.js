@@ -15,6 +15,7 @@ export default new Vuex.Store({
     question:'運転者は誰？',
     toggleRight:false,
     contexts:{},
+    dialog:false,
   },
   mutations:{
     mutateDataBase(state, payload){

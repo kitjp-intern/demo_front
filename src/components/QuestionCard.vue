@@ -15,9 +15,31 @@
           <v-col cols="1">
             <v-btn 
              @click="GetAnswer(question)"
+             :disabled="diaLog"
+             :loading="diaLog"
              color="primary"
              class="pa-1 ma-1"
             >SEND</v-btn>
+              <v-dialog
+                v-model="diaLog"
+                hide-overlay
+                persistent
+                width="300"
+              >
+              <v-card
+                color="primary"
+                dark
+              >
+              <v-card-text>
+                Please stand by
+              <v-progress-linear
+                indeterminate
+                color="white"
+                class="mb-0"
+              ></v-progress-linear>
+              </v-card-text>
+              </v-card>
+            </v-dialog>
           </v-col>
         </v-row>
       <v-snackbar
@@ -41,7 +63,6 @@ export default {
         color: '',
         message: ''
     },
-    color:['f4ffff','#eaffff','#d5ffff','#aaffff','#80ffff','#55ffff','#2bffff','#00ffff','#00d5d5','#00aaaa']
   }),
   computed:{
     answerOutput(){
@@ -52,8 +73,10 @@ export default {
     },
     question(){
       return this.$store.state.question
-    }
-
+    },
+    diaLog(){
+      return this.$store.state.dialog
+    },
   },
   methods:{
     GetAnswer(query){
@@ -69,10 +92,12 @@ export default {
         this.$store.state.answerTop10 = response.data.q
         this.$store.state.answer = response.data.q[0]
         this.showSnackBar('success','通信成功')
+        this.$store.state.dialog = false
       })
       .catch((reason)=>{
         console.log(reason.message)
         this.showSnackBar('error',reason.message+'取得に失敗しました。時間をおいて再度お試しください')
+        this.$store.state.dialog = false
       })
     },
     showSnackBar: function (color, message) {

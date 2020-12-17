@@ -5,7 +5,7 @@
   <v-col>
     <dataset-choose/>
     <question-card/>
-    <v-card v-if="answer1!={}" color="#952175" dark>
+    <v-card v-if="answer1!={}">
       <h1>Answer:{{ answer1.answer }}</h1>
     </v-card>
   </v-col>
@@ -51,5 +51,7 @@ export default {
   border-color:gray;
   margin-right: 200px;
 }
+
+
 
 </style>

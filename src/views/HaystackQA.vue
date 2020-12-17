@@ -27,11 +27,6 @@ export default {
     AnswerCard,
     TopKCard,
   },
-  computed:{
-    toggleRight(){
-      return this.$store.state.toggleRight
-    }
-  },
 }
 </script>
 
