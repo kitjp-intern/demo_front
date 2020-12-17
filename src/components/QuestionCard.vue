@@ -21,25 +21,38 @@
              class="pa-1 ma-1"
             >SEND</v-btn>
               <v-dialog
+                v-model="dialogAnswer"
+                width="1000"
+              >
+                <v-card
+                  color="primary"
+                  dark
+                >
+                  <v-card-title>
+                    Answer:{{answer1.answer}}
+                  </v-card-title>
+                </v-card>
+              </v-dialog>
+              <v-dialog
                 v-model="diaLog"
                 hide-overlay
                 persistent
-                width="300"
+                width="1000"
               >
-              <v-card
-                color="primary"
-                dark
-              >
-              <v-card-text>
-                Please stand by
-              <v-progress-linear
-                indeterminate
-                color="white"
-                class="mb-0"
-              ></v-progress-linear>
-              </v-card-text>
-              </v-card>
-            </v-dialog>
+                <v-card
+                  color="primary"
+                  dark
+                >
+                  <v-card-title>
+                    質問送信中
+                  <v-progress-linear
+                    indeterminate
+                    color="white"
+                    class="mb-0"
+                  ></v-progress-linear>
+                  </v-card-title>
+                </v-card>
+              </v-dialog>
           </v-col>
         </v-row>
       <v-snackbar
@@ -77,9 +90,13 @@ export default {
     diaLog(){
       return this.$store.state.dialog
     },
+    dialogAnswer(){
+      return this.$store.state.dialogAnswer
+    }
   },
   methods:{
     GetAnswer(query){
+      this.$store.state.dialog = true
       let url = 'https://ecf985acfa8e.ngrok.io/get/' + decodeURI(query);
       axios.get(url)
       .then(response=>{
@@ -87,9 +104,9 @@ export default {
           response.data.q[i].dialog = false
           response.data.q[i].flex = 12
           response.data.q[i].top = i + 1
-          response.data.q[i].color = this.color[i]
         }
         this.$store.state.answerTop10 = response.data.q
+        console.log(response.data.q)
         this.$store.state.answer = response.data.q[0]
         this.showSnackBar('success','通信成功')
         this.$store.state.dialog = false
@@ -99,12 +116,14 @@ export default {
         this.showSnackBar('error',reason.message+'取得に失敗しました。時間をおいて再度お試しください')
         this.$store.state.dialog = false
       })
+    this.$store.state.dialogAnswer=true
     },
     showSnackBar: function (color, message) {
         this.snackBar.message = message
         this.snackBar.color = color
         this.snackBar.show = true
       },
+
   },
 }
 </script>

@@ -16,6 +16,7 @@ export default new Vuex.Store({
     toggleRight:false,
     contexts:{},
     dialog:false,
+    dialogAnswer:false,
   },
   mutations:{
     mutateDataBase(state, payload){

@@ -5,8 +5,8 @@
   <v-col>
     <dataset-choose/>
     <question-card/>
-    <v-card v-if="answer1!={}">
-      <h1>Answer:{{ answer1.answer }}</h1>
+    <v-card v-if="dialogAnswer!=false" color="primary" dark>
+      <v-card-title >Answer:{{ answer1.answer }}</v-card-title>
     </v-card>
   </v-col>
   </v-row>
@@ -30,9 +30,11 @@ export default {
   }),
   computed:{
     answer1(){
-      console.log(this.$store.state.answer)
       return this.$store.state.answer
     },
+    dialogAnswer(){
+      return this.$store.state.dialogAnswer
+    }
   },
   methods:{
   }
