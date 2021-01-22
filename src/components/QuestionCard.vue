@@ -69,12 +69,15 @@
 
 <script>
 import axios from 'axios'
+
 export default {
   data:()=>({
     snackBar: {
         show: false,
         color: '',
-        message: ''
+        message: '',
+        question: '目で追う時間が長くなるのはどんな女性？'
+        
     },
   }),
   computed:{
@@ -83,9 +86,6 @@ export default {
     },
     answer1(){
       return this.$store.state.answer
-    },
-    question(){
-      return this.$store.state.question
     },
     diaLog(){
       return this.$store.state.dialog
@@ -97,7 +97,7 @@ export default {
   methods:{
     GetAnswer(query){
       this.$store.state.dialog = true
-      let url = 'https://ecf985acfa8e.ngrok.io/get/' + decodeURI(query);
+      let url = this.$route.query.apiurl +'/get/' + decodeURI(query);
       axios.get(url)
       .then(response=>{
         for (let i=0; i < response.data.q.length; i++){

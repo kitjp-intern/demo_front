@@ -1,13 +1,3 @@
 <template>
-  <a>Hi</a>
+  <a style="text-align:center">KT DEMO</a>
 </template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style>
-
-</style>

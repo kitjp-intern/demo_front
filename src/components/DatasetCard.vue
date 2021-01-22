@@ -62,7 +62,7 @@ export default {
       console.log(dataset)
     },
     pushDataBase(){
-      axios.post('https://a751440dca00.ngrok.io/post/database',{
+      axios.post('https://098d1a5b7905.ngrok.io/post/database',{
       database:this.datasetName
       }).then(response=>{
         console.log("pushDataBase"+response)
@@ -77,6 +77,7 @@ export default {
     }
   },
   created() {
+    this.$store.state.apiurl='https://098d1a5b7905.ngrok.io'
     this.$store.dispatch('commitDataBase')
   }
 }

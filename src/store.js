@@ -12,11 +12,11 @@ export default new Vuex.Store({
     dataSet:{},
     answerTop10:{},
     answer:{},
-    question:'運転者は誰？',
     toggleRight:false,
     contexts:{},
     dialog:false,
     dialogAnswer:false,
+    apiurl:''
   },
   mutations:{
     mutateDataBase(state, payload){
@@ -26,7 +26,8 @@ export default new Vuex.Store({
   actions:{
     //データベース受け取り
     commitDataBase:({commit, state})=>{
-      return axios.get('https://ecf985acfa8e.ngrok.io/get/database')
+      let apiurl=state.apiurl + '/get/database'
+      return axios.get(apiurl)
       .then(response => {
         for (let i=0; i < response.data.length; i++){
           response.data[i].show = false
@@ -43,7 +44,8 @@ export default new Vuex.Store({
     },
     //選択されたデータベースのpost
     pushDataBase(state){
-      axios.post('https://927477f6db88.ngrok.io/post/database',{
+      let apiurlpost = state.apiurl + '/post/database'
+      axios.post(apiurlpost,{
       database:state.datasetName
       })
     }
