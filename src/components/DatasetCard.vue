@@ -39,7 +39,7 @@
               <v-card-text>{{card.explain}}</v-card-text>
             </div>
           </v-expand-transition>
-          <v-btn @click="datasetChange(card.name); pushDataBase" color="primary" rounded>データセット選択</v-btn>
+          <v-btn @click="datasetChange(card.name); pushDataBase()" color="primary" rounded>データセット選択</v-btn>
         </v-card>
       </v-col>
     </v-row>
@@ -59,11 +59,12 @@ export default {
     datasetChange(dataset){
       //store data change
       this.$store.state.datasetName = dataset
-      console.log(dataset)
+      console.log(this.$store.state.datasetName)
     },
     pushDataBase(){
-      axios.post('https://098d1a5b7905.ngrok.io/post/database',{
-      database:this.datasetName
+      let url =  'https://098d1a5b7905.ngrok.io/get/' + this.$store.state.datasetName
+      axios.get(url,{
+      database:this.$store.state.datasetName
       }).then(response=>{
         console.log("pushDataBase"+response)
       }).catch(error=>{
