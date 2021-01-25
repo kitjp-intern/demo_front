@@ -1,6 +1,6 @@
 <!--大元-->
 <template>
-  <v-app id="app">
+  <v-app id="contents">
     <!-- ナビゲーションドロワー -->
     <v-navigation-drawer 
             app 
@@ -64,6 +64,6 @@ export default {
 @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
   #app{
     background-color:white;
-    padding-left:30px;
+    padding-left:0px;
   }
 </style>

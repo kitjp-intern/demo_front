@@ -56,15 +56,5 @@ $text-color: #eff1ff;
 $background-color: #04009d;
 $background-color-dark: #06004d;
 
-#maru {
- height:30px;
- width:30px;
- border-radius:50%;
- border: solid 1px black;
- line-height:30px;
- background-color:white;
- margin-top:10px;
- margin-left:200px;
-}
 
 </style>

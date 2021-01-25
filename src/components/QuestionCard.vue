@@ -97,7 +97,7 @@ export default {
   methods:{
     GetAnswer(query){
       this.$store.state.dialog = true
-      let url = this.$route.query.apiurl +'/get/' + decodeURI(query);
+      let url = 'https://098d1a5b7905.ngrok.io' +'/get/' + decodeURI(query);
       axios.get(url)
       .then(response=>{
         for (let i=0; i < response.data.q.length; i++){

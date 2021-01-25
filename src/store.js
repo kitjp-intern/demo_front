@@ -16,7 +16,7 @@ export default new Vuex.Store({
     contexts:{},
     dialog:false,
     dialogAnswer:false,
-    apiurl:''
+    apiurl:'https://098d1a5b7905.ngrok.io'
   },
   mutations:{
     mutateDataBase(state, payload){
@@ -26,7 +26,7 @@ export default new Vuex.Store({
   actions:{
     //データベース受け取り
     commitDataBase:({commit, state})=>{
-      let apiurl=state.apiurl + '/get/database'
+      let apiurl = state.apiurl + '/get/database'
       return axios.get(apiurl)
       .then(response => {
         for (let i=0; i < response.data.length; i++){

@@ -5,9 +5,8 @@
   <v-col>
     <dataset-choose/>
     <question-card/>
-    <v-card v-if="dialogAnswer!=false" color="primary" dark>
-      <v-card-title >Answer:{{ answer1.answer }}</v-card-title>
-    </v-card>
+      <h1 class="answer">Answer</h1>
+      <div><b>{{answer1.answer}}</b></div>
   </v-col>
   </v-row>
 </v-container>
@@ -51,8 +50,12 @@ export default {
   color:black;
   border-bottom:solid;
   border-color:gray;
-  margin-right: 200px;
+  margin-right: 1000px;
+  padding: 10px 10px 0px 10px;
 }
+
+
+
 
 
 

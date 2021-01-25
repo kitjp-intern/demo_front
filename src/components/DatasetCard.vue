@@ -77,7 +77,6 @@ export default {
     }
   },
   created() {
-    this.$store.state.apiurl='https://098d1a5b7905.ngrok.io'
     this.$store.dispatch('commitDataBase')
   }
 }
