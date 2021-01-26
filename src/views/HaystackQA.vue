@@ -1,16 +1,16 @@
 <template>
-  <v-container>
+<v-container fluid>
     <v-row>
-      <v-col cols="6" style="border-left:10px">
+      <v-col cols="12" sm="12" md="12" lg="6" style="border-left:10px">
         <about/>
         <dataset-card/>
       </v-col>
-      <v-col cols="6">
+      <v-col cols="12" sm="12" md="12" lg="6">
       <answer-card/> 
       <top-k-card/>
       </v-col >
     </v-row>
-  </v-container> 
+</v-container>
 </template>
 
 <script>

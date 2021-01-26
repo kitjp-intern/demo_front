@@ -1,11 +1,13 @@
 <template>
-  <v-container fluid>
+  <v-container>
+    <v-row>
     <textarea 
       v-model="contexts[databaseName]"
       class="textlines"
       placeholder="データの中身の例"
       >              
     </textarea>
+    </v-row>
   </v-container>
 </template>
 
