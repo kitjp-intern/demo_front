@@ -6,10 +6,11 @@
         <dataset-card/>
       </v-col>
       <v-col cols="12" sm="12" md="12" lg="6">
-        <div>
-          <router-link to="/HaystackQA/answer">answer</router-link>
-        </div>
-        <div>
+        <ul>
+          <li><router-link to="/HaystackQA">Question</router-link></li>
+          <li><router-link to="/HaystackQA/Answer">answer</router-link></li>
+        </ul>
+        <div class="child-page">
           <router-view/>
         </div>
       </v-col>
@@ -43,5 +44,10 @@ export default {
   opacity: 0;
 }
 
+.child-page {
+  border: 2px solid #ddd;
+  width: 100vw;
+  padding: 20px;
+}
 
 </style>

@@ -21,7 +21,7 @@ const routes = [
       component: Question
     },
     {
-      path: 'answer',
+      path: 'Answer',
       component: Answer
     }]
   }

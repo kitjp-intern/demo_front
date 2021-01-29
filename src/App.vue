@@ -56,7 +56,7 @@ export default {
   data: () => ({
         items: [
           { title: 'home', icon: 'mdi-home', link:'/'},
-          { title: 'haystackQA', icon: 'mdi-text-box', link:'HaystackQA' },
+          { title: 'HaystackQA', icon: 'mdi-text-box', link:'/HaystackQA' },
         ]
   }),
 };
