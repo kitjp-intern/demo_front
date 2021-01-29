@@ -16,7 +16,6 @@
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-
       <v-list
         dense
         nav
@@ -40,9 +39,11 @@
 
     <!-- コンテンツ  -->
     <v-main>
-        <keep-alive>
-          <router-view ></router-view>
-        </keep-alive>
+        <div>
+          <keep-alive>
+            <router-view/>
+          </keep-alive>
+        </div>
     </v-main>
   </v-app>
 </template>
@@ -54,14 +55,13 @@ export default {
   },
   data: () => ({
         items: [
-          { title: 'Home', icon: 'mdi-home', link:'/'},
-          { title: 'HaystackQA', icon: 'mdi-text-box', link:'HaystackQA' },
+          { title: 'home', icon: 'mdi-home', link:'/'},
+          { title: 'haystackQA', icon: 'mdi-text-box', link:'HaystackQA' },
         ]
   }),
 };
 </script>
 <style scoped>
-@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
   #app{
     background-color:white;
     padding-left:0px;

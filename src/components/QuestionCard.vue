@@ -77,7 +77,6 @@ export default {
         color: '',
         message: '',
         question: '目で追う時間が長くなるのはどんな女性？'
-        
     },
   }),
   computed:{

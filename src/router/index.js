@@ -1,30 +1,37 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import HaystackQA from '../views/HaystackQA/parent.vue'
+import Question from  '../views/HaystackQA/Question'
+import Answer from '../views/HaystackQA/Answer'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
     component: Home
   },
   {
-    path: '/haystackQA',
-    name: 'HaystackQA',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/HaystackQA.vue')
+    path: '/HaystackQA',
+    component: HaystackQA,
+    childlen:[
+    {
+      path: '',
+      component: Question
+    },
+    {
+      path: 'answer',
+      component: Answer
+    }]
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  //base: process.env.BASE_URL,
   routes,
-  linkActiveClass: 'active',
+  //linkActiveClass: 'active',
 })
 
 export default router
