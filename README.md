@@ -17,6 +17,8 @@ cd docs
 http-server
 ```
 
+
+ブラウザで
 http://"ローカルipアドレス":local:8080
 
 
