@@ -7,11 +7,11 @@
       </v-col>
       <v-col cols="12" sm="12" md="12" lg="6">
         <ul>
-          <li><router-link to="/HaystackQA">Question</router-link></li>
+          <li><router-link to="/HaystackQA/">Question</router-link></li>
           <li><router-link to="/HaystackQA/answer">answer</router-link></li>
         </ul>
         <div class="child-page">
-          <router-view/>
+          <router-view name="child"></router-view>
           <p>
             ああああああああああああああああ
           </p>
