@@ -1,24 +1,24 @@
 # demo_front
+ubuntu18.xで動かすことを想定している。
 
-## Project setup
+## Instration
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+git clone https://github.com/kitjp-intern/demo_front.git
 ```
 
-### Compiles and minifies for production
+## Requirement
 ```
-npm run build
+sudo bash setup.sh
 ```
 
-### Lints and fixes files
+## Usage
 ```
-npm run lint
+cd docs
+http-server
 ```
+
+http://"ローカルipアドレス":local:8080
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

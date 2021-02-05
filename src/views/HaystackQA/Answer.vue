@@ -11,7 +11,7 @@ import AnswerCard from '../../components/AnswerCard'
 import DatasetChoose from '../../components/DatasetChoose'
 import TopKCard from '../../components/TopKCard'
 export default {
-  components: { DatasetChoose, AnswerCard, TopKCard },
+  components: { DatasetChoose, AnswerCard, TopKCard,},
 }
 </script>
 
