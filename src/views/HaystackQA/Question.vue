@@ -1,16 +1,24 @@
 <template>
   <v-container fluid>
-    <p>HI</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <dataset-choose/>
-    <input-card/>
+    <br>
+    <br>
+    <br>
+    <br>
+    <question-card/>
   </v-container>
 </template>
 
 <script>
 import DatasetChoose from '../../components/DatasetChoose'
-import InputCard from '../../components/InputCard'
+import QuestionCard from '../../components/QuestionCard'
 export default {
-  components: { DatasetChoose, InputCard },
+  components: { DatasetChoose, QuestionCard },
 
 }
 </script>

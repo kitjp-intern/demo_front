@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import HaystackQA from '../views/HaystackQA/parent'
+import HaystackQA from '../views/HaystackQA/HaystackQA'
 import Question from  '../views/HaystackQA/Question'
 import Answer from '../views/HaystackQA/Answer'
 
@@ -13,13 +13,12 @@ const routes = [
     component: HaystackQA,
     children:[
     {
-      path: '',
+      path:'',
       component:Question
-
     },
     {
-      path: 'answer',
-      components:Answer
+      path:'answer',
+      component:Answer
     }]
   }
 ]

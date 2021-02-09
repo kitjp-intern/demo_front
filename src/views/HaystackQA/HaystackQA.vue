@@ -1,18 +1,12 @@
 <template>
 <v-container fluid>
     <v-row>
-      <v-col cols="12" sm="12" md="12" lg="6" style="border-left:10px">
+      <v-col cols="6" sm="6" md="6" lg="6" style="border-left:10px">
         <about/>
         <dataset-card/>
       </v-col>
-      <v-col cols="12" sm="12" md="12" lg="6">
-        <ul>
-          <li><router-link to="/HaystackQA/">Question</router-link></li>
-          <li><router-link to="/HaystackQA/answer">answer</router-link></li>
-        </ul>
-        <div class="child-page">
+      <v-col cols="6" sm="6" md="6" lg="6">
           <router-view></router-view>
-        </div>
       </v-col>
     </v-row>
 </v-container>
@@ -44,9 +38,5 @@ export default {
   opacity: 0;
 }
 
-.child-page {
-  border: 2px solid #ddd;
-  padding: 20px;
-}
 
 </style>

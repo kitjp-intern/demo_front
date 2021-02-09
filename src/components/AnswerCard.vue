@@ -4,9 +4,11 @@
   <v-row justify="center">
   <v-col>
     <dataset-choose/>
-    <question-card/>
+      
+      <h1 class="answer">Question</h1>
+      <div class="content"><b>question</b></div>
       <h1 class="answer">Answer</h1>
-      <div><b>{{answer1.answer}}</b></div>
+      <div class="content"><b>{{answer1.answer}}</b></div>
   </v-col>
   </v-row>
 </v-container>
@@ -14,11 +16,9 @@
 
 <script>
 import DatasetChoose from './DatasetChoose'
-import QuestionCard from './QuestionCard'
 export default {
   components: { 
     DatasetChoose,
-    QuestionCard,
   },
   data:()=>({
     snackBar: {
@@ -33,7 +33,10 @@ export default {
     },
     dialogAnswer(){
       return this.$store.state.dialogAnswer
-    }
+    },
+    datasetName(){
+      return this.$store.state.datasetName
+    },
   },
   methods:{
   }
@@ -53,7 +56,11 @@ export default {
   margin-right: 1000px;
   padding: 10px 10px 0px 10px;
 }
-
+.content{
+  text-align:center;
+  margin-top:10px;
+  font-size:30px;
+}
 
 
 
