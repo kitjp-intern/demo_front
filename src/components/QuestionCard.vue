@@ -19,40 +19,8 @@
              :loading="diaLog"
              color="primary"
              class="pa-1 ma-1"
+             to="/HaystackQA/answer"
             >SEND</v-btn>
-              <v-dialog
-                v-model="dialogAnswer"
-                width="1000"
-              >
-                <v-card
-                  color="primary"
-                  dark
-                >
-                  <v-card-title>
-                    Answer:{{answer1.answer}}
-                  </v-card-title>
-                </v-card>
-              </v-dialog>
-              <v-dialog
-                v-model="diaLog"
-                hide-overlay
-                persistent
-                width="1000"
-              >
-                <v-card
-                  color="primary"
-                  dark
-                >
-                  <v-card-title>
-                    質問送信中
-                  <v-progress-linear
-                    indeterminate
-                    color="white"
-                    class="mb-0"
-                  ></v-progress-linear>
-                  </v-card-title>
-                </v-card>
-              </v-dialog>
           </v-col>
         </v-row>
       <v-snackbar
@@ -76,8 +44,8 @@ export default {
         show: false,
         color: '',
         message: '',
-        question: '目で追う時間が長くなるのはどんな女性？'
     },
+    question: ''
   }),
   computed:{
     answerOutput(){
@@ -96,7 +64,7 @@ export default {
   methods:{
     GetAnswer(query){
       this.$store.state.dialog = true
-      let url = 'https://098d1a5b7905.ngrok.io' +'/get/'+ decodeURI(query);
+      let url = 'https://3a7c4a3e8764.ngrok.io' +'/get/'+ decodeURI(query);
       axios.get(url)
       .then(response=>{
         for (let i=0; i < response.data.q.length; i++){

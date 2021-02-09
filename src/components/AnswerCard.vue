@@ -3,10 +3,6 @@
 <v-container id="qa">
   <v-row justify="center">
   <v-col>
-    <dataset-choose/>
-      
-      <h1 class="answer">Question</h1>
-      <div class="content"><b>question</b></div>
       <h1 class="answer">Answer</h1>
       <div class="content"><b>{{answer1.answer}}</b></div>
   </v-col>
@@ -15,11 +11,7 @@
 </template>
 
 <script>
-import DatasetChoose from './DatasetChoose'
 export default {
-  components: { 
-    DatasetChoose,
-  },
   data:()=>({
     snackBar: {
         show: false,

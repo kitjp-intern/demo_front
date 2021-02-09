@@ -16,7 +16,7 @@ export default new Vuex.Store({
     contexts:{},
     dialog:false,
     dialogAnswer:false,
-    apiurl:'https://098d1a5b7905.ngrok.io'
+    apiurl:'https://3a7c4a3e8764.ngrok.io'
   },
   mutations:{
     mutateDataBase(state, payload){
