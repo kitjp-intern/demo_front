@@ -11,18 +11,16 @@ const routes = [
   {path: '/', component: Home},
   { path: '/HaystackQA',
     component: HaystackQA,
-    childlen:[
+    children:[
     {
       path: '',
-      components: {
-        child:Question
-      }
+      component:Question
+
     },
     {
       path: 'answer',
-      components: {
-        child:Answer
-    }}]
+      components:Answer
+    }]
   }
 ]
 

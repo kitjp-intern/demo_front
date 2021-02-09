@@ -11,10 +11,7 @@
           <li><router-link to="/HaystackQA/answer">answer</router-link></li>
         </ul>
         <div class="child-page">
-          <router-view name="child"></router-view>
-          <p>
-            ああああああああああああああああ
-          </p>
+          <router-view></router-view>
         </div>
       </v-col>
     </v-row>
@@ -49,7 +46,6 @@ export default {
 
 .child-page {
   border: 2px solid #ddd;
-  width: 100vw;
   padding: 20px;
 }
 
