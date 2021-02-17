@@ -1,8 +1,9 @@
 <template>
-      <v-container fluid>
-        <answer-card/>
-        <top-k-card/>
-      </v-container>
+  <v-container fluid>
+    <v-btn to="/HaystackQA">Reset</v-btn>
+    <answer-card/>
+    <top-k-card/>
+  </v-container>
 </template>
 
 <script>

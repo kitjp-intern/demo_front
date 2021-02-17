@@ -16,12 +16,16 @@ export default new Vuex.Store({
     contexts:{},
     dialog:false,
     dialogAnswer:false,
-    apiurl:'https://3a7c4a3e8764.ngrok.io'
+    apiurl:'https://e73d770791ae.ngrok.io',
+    question:'aa'
   },
   mutations:{
     mutateDataBase(state, payload){
       state.dataBase = payload;
     },
+    mutateQuestion(state, payload ) {
+      state.question = payload;
+    }
   },
   actions:{
     //データベース受け取り
@@ -48,10 +52,15 @@ export default new Vuex.Store({
       axios.post(apiurlpost,{
       database:state.datasetName
       })
+    },
+    updateQuestion(store,question) {
+      return store.commit("mutateQuestion", question);
     }
+
 
   },
   getters: {
-    getStateDataBase: (state) => state.dataBase
+    getStateDataBase: (state) => state.dataBase,
+    getStateQuestion: (state) => state.question 
    }
 })

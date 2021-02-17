@@ -8,9 +8,8 @@
       <v-col cols="6" sm="6" md="6" lg="6">
           <dataset-choose/>
           <h1 class="answer">Question</h1>
-          <div class="content"><b>{{ question }}</b></div>
-          <a><router-link to="/HaystackQA">Question</router-link></a>|
-          <a><router-link to="/HaystackQA/answer">Answer</router-link></a>
+          <div v-if="question!=''" class="content"><b>{{ question }}</b></div>
+          <div v-else><br><div>
           <router-view></router-view>
       </v-col>
     </v-row>
@@ -25,7 +24,11 @@ export default {
   name:'HaystackQA',
   data(){
     return{
-      question:"目的はなんですか"
+    }
+  },
+  computed:{
+    question(){
+      return this.$store.getters.getStateQuestion
     }
   },
   components:{

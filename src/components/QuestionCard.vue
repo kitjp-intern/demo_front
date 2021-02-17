@@ -6,6 +6,7 @@
          <v-col cols="8">
             <v-text-field
               v-model="question"
+              @input="updateQuestion"
               label="質問"
               outlined
               solo
@@ -19,7 +20,6 @@
              :loading="diaLog"
              color="primary"
              class="pa-1 ma-1"
-             to="/HaystackQA/answer"
             >SEND</v-btn>
           </v-col>
         </v-row>
@@ -37,15 +37,15 @@
 
 <script>
 import axios from 'axios'
-
 export default {
   data:()=>({
     snackBar: {
         show: false,
         color: '',
         message: '',
+        
     },
-    question: ''
+    question:'default'
   }),
   computed:{
     answerOutput(){
@@ -59,12 +59,12 @@ export default {
     },
     dialogAnswer(){
       return this.$store.state.dialogAnswer
-    }
+    },
   },
   methods:{
     GetAnswer(query){
       this.$store.state.dialog = true
-      let url = 'https://3a7c4a3e8764.ngrok.io' +'/get/'+ decodeURI(query);
+      let url = 'https://e73d770791ae.ngrok.io' +'/get/'+ decodeURI(query);
       axios.get(url)
       .then(response=>{
         for (let i=0; i < response.data.q.length; i++){
@@ -77,6 +77,7 @@ export default {
         this.$store.state.answer = response.data.q[0]
         this.showSnackBar('success','通信成功')
         this.$store.state.dialog = false
+        this.moveAnswer()
       })
       .catch((reason)=>{
         console.log(reason.message)
@@ -90,7 +91,12 @@ export default {
         this.snackBar.color = color
         this.snackBar.show = true
       },
-
+    moveAnswer(){
+      this.$router.push({path:'/HaystackQA/answer'})
+    },
+    updateQuestion()  {
+      this.$store.dispatch('updateQuestion',this.question)
+    },
   },
 }
 </script>

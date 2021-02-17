@@ -2,7 +2,6 @@
 <template>
   <v-container fluid>
     <v-row dense justify="center">
-
       <v-col
         v-for="card in dataOutput"
         :key="card.name"
@@ -23,9 +22,7 @@
             >
             Explore
           </v-btn>
-
           <v-spacer></v-spacer>
-
           <v-btn
             icon
             @click="card.show = !card.show"
@@ -62,7 +59,7 @@ export default {
       console.log(this.$store.state.datasetName)
     },
     pushDataBase(){
-      let url =  'https://098d1a5b7905.ngrok.io/get/' + this.$store.state.datasetName
+      let url =  'https://e73d770791ae.ngrok.io' + this.$store.state.datasetName
       axios.get(url,{
       database:this.$store.state.datasetName
       }).then(response=>{
