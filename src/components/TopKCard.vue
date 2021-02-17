@@ -34,7 +34,6 @@
             </v-card-text>
           </v-card>
           </v-dialog>
-
          </v-col>
         </v-row>
   </v-container>
@@ -45,9 +44,8 @@ export default {
   computed:{
     answer1(){
       return this.$store.state.answerTop10
-    }
+    },
   },
-
 }
 </script>
 
