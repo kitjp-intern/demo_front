@@ -1,13 +1,5 @@
 #!/bin/sh
 
-#nodejs npm install and n pacage install
-apt install -y nodejs npm
-sudo npm install n -g
-
-#purge nodejs npm
-sudo n stable
-sudo apt purge -y nodejs npm
-exec $SHELL -l
-
-#http-server install
-npm install http-server
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+source ~/.bashrc
+nvm install v14.15.5
