@@ -11,15 +11,19 @@ git clone https://github.com/kitjp-intern/demo_front.git
 sudo bash setup.sh
 ```
 
+## check
+```
+npm --version
+```
+
 ## Usage
 ```
-cd docs
-http-server
+cd demo_front
+npm run serve
 ```
 
 
-ブラウザで
-http://"ローカルipアドレス":local:8080
+出てきたアドレスをブラウザで入力
 
 
 ### Customize configuration

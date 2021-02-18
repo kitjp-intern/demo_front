@@ -40,7 +40,9 @@
 export default {
   data(){
     return{
-      prob:60
+      prob:60,
+      min:0,
+      max:100
     }
   },
   methods:{

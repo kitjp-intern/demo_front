@@ -59,7 +59,7 @@ export default {
       console.log(this.$store.state.datasetName)
     },
     pushDataBase(){
-      let url =  'https://e73d770791ae.ngrok.io' + this.$store.state.datasetName
+      let url =  'https://f21454415d37.ngrok.io' + this.$store.state.datasetName
       axios.get(url,{
       database:this.$store.state.datasetName
       }).then(response=>{

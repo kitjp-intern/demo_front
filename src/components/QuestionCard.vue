@@ -64,7 +64,8 @@ export default {
   methods:{
     GetAnswer(query){
       this.$store.state.dialog = true
-      let url = 'https://e73d770791ae.ngrok.io' +'/get/'+ decodeURI(query);
+      let url = 'https://f21454415d37.ngrok.io' +'/get/'+ decodeURI(query);
+      console.log(url)
       axios.get(url)
       .then(response=>{
         for (let i=0; i < response.data.q.length; i++){
@@ -72,7 +73,9 @@ export default {
           response.data.q[i].flex = 12
           response.data.q[i].top = i + 1
         }
-        this.$store.state.answerTop10 = response.data.q.filter(response.data.q.prob * 100 > this.$store.state.prob)
+        console.log(response.data.q[0].prob)
+        console.log(this.$store.state.prob)      
+        this.$store.state.answerTop10 = response.data.q
         console.log(response.data.q)
         this.$store.state.answer = response.data.q[0]
         this.showSnackBar('success','通信成功')
@@ -92,7 +95,7 @@ export default {
         this.snackBar.show = true
       },
     moveAnswer(){
-      this.$router.push({path:'/HaystackQA/answer'})
+      this.$router.push({path:'/answer'})
     },
     updateQuestion()  {
       this.$store.dispatch('updateQuestion',this.question)

@@ -46,10 +46,11 @@ export default {
   margin-right: 1000px;
   padding: 10px 10px 0px 10px;
 }
-.content{
+div.content{
   text-align:center;
   margin-top:10px;
-  font-size:30px;
+  margin-left: 300px;
+  font-size:40px;
 }
 
 

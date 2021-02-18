@@ -16,7 +16,7 @@ export default new Vuex.Store({
     contexts:{},
     dialog:false,
     dialogAnswer:false,
-    apiurl:'https://e73d770791ae.ngrok.io',
+    apiurl:'https://f21454415d37.ngrok.io',
     question:'',
     prob:60
   },
