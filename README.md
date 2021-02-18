@@ -16,6 +16,13 @@ sudo bash setup.sh
 npm --version
 ```
 
+## Npm requirement install
+
+```
+cd demo_front 
+npm install package.json
+```
+
 ## Usage
 ```
 cd demo_front
