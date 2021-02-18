@@ -1,11 +1,9 @@
 <!--QAcard-->
 <template>
 <v-container id="qa">
-  <v-row justify="center">
-  <v-col>
+  <v-row>
       <h1 class="answer">Answer</h1>
       <div class="content"><b>{{answer1.answer}}</b></div>
-  </v-col>
   </v-row>
 </v-container>
 </template>

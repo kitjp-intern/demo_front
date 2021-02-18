@@ -8,8 +8,8 @@
       <v-col cols="6" sm="6" md="6" lg="6">
           <dataset-choose/>
           <h1 class="answer">Question</h1>
-          <div v-if="question!=''" class="content"><b>{{ question }}</b></div>
-          <div v-else><br><div>
+          <div v-if="question !='' " class="content"><b>{{ question }}</b></div>
+          <div v-else class="content"><br></div>
           <router-view></router-view>
       </v-col>
     </v-row>

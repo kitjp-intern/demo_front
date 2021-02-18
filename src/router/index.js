@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import HaystackQA from '../views/HaystackQA/HaystackQA'
 import Question from  '../views/HaystackQA/Question'
 import Answer from '../views/HaystackQA/Answer'
@@ -8,8 +7,7 @@ import Answer from '../views/HaystackQA/Answer'
 Vue.use(VueRouter)
 
 const routes = [
-  {path: '/', component: Home},
-  { path: '/HaystackQA',
+  { path: '/',
     component: HaystackQA,
     children:[
     {

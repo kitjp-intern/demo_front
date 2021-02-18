@@ -17,7 +17,8 @@ export default new Vuex.Store({
     dialog:false,
     dialogAnswer:false,
     apiurl:'https://e73d770791ae.ngrok.io',
-    question:'aa'
+    question:'',
+    prob:60
   },
   mutations:{
     mutateDataBase(state, payload){
@@ -25,7 +26,12 @@ export default new Vuex.Store({
     },
     mutateQuestion(state, payload ) {
       state.question = payload;
-    }
+    },
+    mutateProb(state, payload ) {
+      state.prob = payload;
+    },
+
+
   },
   actions:{
     //データベース受け取り
@@ -39,6 +45,7 @@ export default new Vuex.Store({
           response.data[i].dialog = false
           state.contexts[response.data[i].name]=response.data[i].contexts
         }
+        
         commit('mutateDataBase', response.data)
        })
        .catch((reason) => {
@@ -55,6 +62,9 @@ export default new Vuex.Store({
     },
     updateQuestion(store,question) {
       return store.commit("mutateQuestion", question);
+    },
+    updateProb(store,prob){
+      return store.commit("mutateProb", prob)
     }
 
 

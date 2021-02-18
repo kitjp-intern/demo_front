@@ -45,7 +45,7 @@ export default {
         message: '',
         
     },
-    question:'default'
+    question:''
   }),
   computed:{
     answerOutput(){
@@ -72,7 +72,7 @@ export default {
           response.data.q[i].flex = 12
           response.data.q[i].top = i + 1
         }
-        this.$store.state.answerTop10 = response.data.q
+        this.$store.state.answerTop10 = response.data.q.filter(response.data.q.prob * 100 > this.$store.state.prob)
         console.log(response.data.q)
         this.$store.state.answer = response.data.q[0]
         this.showSnackBar('success','通信成功')

@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-btn to="/HaystackQA">Reset</v-btn>
+    <v-btn small color="pink" dark to="/">Reset</v-btn>
     <answer-card/>
     <top-k-card/>
   </v-container>
